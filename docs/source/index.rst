@@ -9,3 +9,5 @@ Facts database <https://world.openfoodfacts.org/>`_ and offers a *simple* and
 .. note::
 
    This project is under active development.
+
+   .. git_changelog::
