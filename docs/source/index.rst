@@ -1,4 +1,4 @@
-Welcome to Lumache's documentation!
+Corpus Approaches to Language in Social Media | Online Companion
 ===================================
 
 **Lumache** (/lu'make/) is a Python library for cooks and food lovers that
@@ -9,3 +9,5 @@ Facts database <https://world.openfoodfacts.org/>`_ and offers a *simple* and
 .. note::
 
    This project is under active development.
+
+   .. git_changelog::
