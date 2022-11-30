@@ -1,34 +1,20 @@
-# Heavily based on https://github.com/SilverRainZ/bullet/blob/7ef27a90a2eed8153a0885c93294d07c7a727a70/.github/workflows/gh-pages.yml
-
-name: Sphinx build
-
-on: push
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
-    runs-on: ubuntu-20.04
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-python@v4
-      with:
-        python-version: "3.9.13"
-        cache: "pip"
-    - name: Cache
-      uses: actions/cache@v3
-      with:
-        path: /tmp/sphinxnotes-err
-        key: ${{ runner.os }}-Sphinx-Github2
-    - name: Build and Commit
-      uses: sphinx-notes/pages@cache2
-      with:
-        documentation_path: .
-        requirements_path: ./requirements.txt
-        sphinx_version: 4.5.0
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: gh-pages
+    - uses: actions/checkout@master
 
-
-    
+    - name: Deploy
+      uses: s0/git-publish-subdir-action@develop
+      env:
+        REPO: self
+        BRANCH: gh-pages
+        FOLDER: build
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
