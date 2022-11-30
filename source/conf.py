@@ -30,7 +30,10 @@ release = "1.0.0"
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
+extensions = ["sphinxcontrib.bibtex"]
+
+bibtex_bibfiles = ["bibliography.bib"]
+bibtex_reference_style = "author_year"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -53,8 +56,13 @@ html_theme = "sphinx_book_theme"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
 
-# Add Github button at the top
+# Set theme options
 html_theme_options = {
-    "repository_url": "https://github.com/mdic/testph",
+    # "repository_url": "https://github.com/mdic/testph",
+    "repository_url": "https://github.com/mdic/testph/",
     "use_repository_button": True,
+    "use_edit_page_button": True,
+    "use_sidenotes": True,
 }
+
+html_title = "Title"
